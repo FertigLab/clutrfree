@@ -37,7 +37,8 @@ public class GONode {
 
     // Operations
 
-    public void printAttributes() {
+    /*public void printAttributes() {
       content.print();
     }
+    */
 }
