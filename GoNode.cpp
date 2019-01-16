@@ -1,44 +1,45 @@
-public class GONode {
+      class GONode {
+      public:
 
-    // Constants
+      // Constants
 
-    private static int MAXSons = 10;
+      private static int MAXSons = 10;
 
-    // Attributes
+      // Attributes
 
-    public GONode parent;    // up and down pointers
-    public GONode[] son;
-    public int nsons;
+      public GONode parent;    // up and down pointers
+      public vector<GONode> son;
+      public int nsons;
 
-    public GONode prev;   // left and right pointers between sons
-    public GONode next;
+      public GONode prev;   // left and right pointers between sons
+      public GONode next;
 
-    public int level;    // hierarchical level
+      public int level;    // hierarchical level
 
-    public float xpos;   // x and y plot position
-    public float ypos;
+      public float xpos;   // x and y plot position
+      public float ypos;
 
-    public Ontology content;
+      public Ontology content;
 
-    // Constructors
-    public GONode(GONode next, GONode prev, GONode up, GONode down, Ontology content, int level) {
+      // Constructors
+      public GONode(GONode next, GONode prev, GONode up, GONode down, Ontology content, int level) {
 
-      this->prev = prev;
-      this->next = next;
+        this->prev = prev;
+        this->next = next;
 
-      this->parent = parent;
+        this->parent = parent;
 
-      this->content = content;
-      this->level = level;
+        this->content = content;
+        this->level = level;
 
-      this->son = new GONode[MAXSons];
-      this->nsons = 0;
-    }
+        this->son = new GONode[MAXSons];
+        this->nsons = 0;
+      }
 
-    // Operations
+      // Operations
 
-    /*public void printAttributes() {
-      content.print();
-    }
-    */
-}
+      /*public void printAttributes() {
+        content.print();
+      }
+      */
+  }
