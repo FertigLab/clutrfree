@@ -4,6 +4,7 @@
 using namespace std;
 
 class Pattern {
+public:
     // Attributes
     private vector<float> values;         // the "profile" contained in a pattern
     private vector<float> sigma;          // Uncertainties of the profile
@@ -37,7 +38,7 @@ class Pattern {
 
     // Constructor
     //public Pattern(float[] values, float[] sigma, float cutoff, float[][] pat, float[][] sgp, float[][] amp, float[][] sga, GOData geneGO, int index)
-    public Pattern(vector<float> values, vector<float> sigma, float cutoff, vector<vector<float>> pat, vector<vector<float>> sgp, vector<vector<float>> amp, vector<vector<float>> sga, int index): values(values), sigma(sigma), cutoff(cutoff), patternMatrix(pat), patSigmaMatrix(sgp), ampliMatrix(amp), ampliSigmaMatrix(sga)
+    Pattern(vector<float> values, vector<float> sigma, float cutoff, vector<vector<float>> pat, vector<vector<float>> sgp, vector<vector<float>> amp, vector<vector<float>> sga, int index): values(values), sigma(sigma), cutoff(cutoff), patternMatrix(pat), patSigmaMatrix(sgp), ampliMatrix(amp), ampliSigmaMatrix(sga)
     {
         int i,j;
         valuesBin = vector<int>(this->values.size());
@@ -77,43 +78,43 @@ class Pattern {
 
 
     // Operations
-    public vector<float> getValues() {
+    vector<float> getValues() {
         return values;
     }
 
-    public vector<float> getUncertainties() {
+    vector<float> getUncertainties() {
 	    return sigma;
     }
 
-    public vector<int> getValuesBin() {
+    vector<int> getValuesBin() {
 	    return valuesBin;
     }
 
-    public vector<vector<float>> getPatternMatrix() {
+    vector<vector<float>> getPatternMatrix() {
 	    return patternMatrix;
     }
 
-    public float getMaxPattern() {
+    float getMaxPattern() {
 	    return patternMax;
     }
 
-    public vector<vector<float>> getPatSigmaMatrix() {
+    vector<vector<float>> getPatSigmaMatrix() {
 	    return patSigmaMatrix;
     }
 
-    public vector<vector<float>> getAmpliMatrix() {
+    vector<vector<float>> getAmpliMatrix() {
 	    return ampliMatrix;
     }
 
-    public float getMaxAmplitude() {
+    float getMaxAmplitude() {
 	    return this.amplitudeMax;
     }
 
-    public vector<vector<float>> getAmpSigmaMatrix() {
+    vector<vector<float>> getAmpSigmaMatrix() {
 	    return ampliSigmaMatrix;
     }
 
-    public void setPersistenceMatrix(vector<vector<int>> pers) {
+    void setPersistenceMatrix(vector<vector<int>> pers) {
     	persistenceMatrix = pers;
 
     	int height = pers.size();
@@ -127,29 +128,29 @@ class Pattern {
     	persistenceMax = max;
     }
 
-    public void clearPersistence() {
+    void clearPersistence() {
     	for(unsigned i = 0; i < valuesBin.size(); ++i) {
     	    persistence[i] = valuesBin[i];
     	}
     }
 
-    public vector<vector<int>> getPersistenceMatrix() {
+    vector<vector<int>> getPersistenceMatrix() {
 	    return persistenceMatrix;
     }
 
-    public int getMaxPersistence() {
+    int getMaxPersistence() {
 	    return persistenceMax;
     }
 
-    public void setPersistence(vector<int> persistence) {
+    void setPersistence(vector<int> persistence) {
 	    this->persistence = persistence;
     }
 
-    public vector<int> getPersistence() {
+    vector<int> getPersistence() {
 	    return persistence;
     }
 
-    public void print() {
+    void print() {
     	for (unsigned i = 0; i < values.length; ++i) {
     	    cout << i << ":" << values[i] << "(" << sigma[i] << endl;
     	}
@@ -160,7 +161,7 @@ class Pattern {
      * Reset the persistence....
      * Update the gene annot count;
      */
-    public void setCutoff(float cutoff) {
+    void setCutoff(float cutoff) {
     	this->cutoff = cutoff;
 
     	//System.out.println("reset cutoff and persistence");
@@ -192,32 +193,32 @@ class Pattern {
     /**
      * return the go counts
      */
-    public CountValue[] getCount() {
+    Vector<CountValue> getCount() {
 	    return countOn;
     }
 
-    public GOCount getGC() {
+    GOCount getGC() {
 	    return gc;
     }
 
     /**
      * set the full count matrix and p-values matrix
      */
-    public void setCountMatrix(vector<vector<CountValue>> countMatrix) {
+    void setCountMatrix(vector<vector<CountValue>> countMatrix) {
 	    this->countMatrix = countMatrix;
     }
 
     /**
      * get the on count matrix
      */
-    public vector<vector<CountValue>> getCountMatrix() {
+    vector<vector<CountValue>> getCountMatrix() {
 	    return countMatrix;
     }
 
     /**
      * get the number of elements > cutoff
      */
-    public int getNvalues() {
+    int getNvalues() {
 	    return nvalues;
     }
 }
