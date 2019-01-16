@@ -1,50 +1,61 @@
-/** this class contains values counts for ontologies, including p-values */
+      /** this class contains values counts for ontologies, including p-values */
+     #include<iostream>
+     #include<string>
 
-class CountValue {
+     using namespace std;
 
-  // Attributes
-  protected int k; // number of ontologies in given clusters
-  protected int n; // total number of gens in cluster
-  protected int K; // number of ontologies in data
-  protected int N; // total number of genes in data
-  protected float pval; // p value
-  protected float count; // count (k%n / K/N)
 
-  protected String sValue; // string representation
-  protected String sAllValue; // alternate string repr.
+      class CountValue {
+        public:
+        // Attributes
+        protected int k; // number of ontologies in given clusters
+        protected int n; // total number of gens in cluster
+        protected int K; // number of ontologies in data
+        protected int N; // total number of genes in data
+        protected float pval; // p value
+        protected float count; // count (k%n / K/N)
 
-  // Constructors
-  public CountValue(int k, int n, int K, int N, float pval, float count) {
+        string sValue; // string representation
+        string sAllValue; // alternate string repr.
 
-    this->k = k;
-    this->n = n;
-    this->K = K;
-    this->N = N;
-    this->count = count;
-    this->pval = pval;
+        // Constructors
+        public CountValue(int k, int n, int K, int N, float pval, float count) {
 
-    this->sValue =  "" + ((float)Math.round(count*10000))/10000;
+          this->k = k;
+          this->n = n;
+          this->K = K;
+          this->N = N;
+          this->count = count;
+          this->pval = pval;
 
-    this->sAllValue = "" + this->sValue + "[ " + k + ";" + n + " - " + K + ";" + N  + "]";
-  }
+          this->sValue =  "" + ((float)Math.round(count*10000))/10000;
 
-  // Operations
-  bool operator<(CountValue other) const {
-    return this->count < other.count;
-  }
+          this->sAllValue = "" + this->sValue + "[ " + k + ";" + n + " - " + K + ";" + N  + "]";
+        }
 
-  bool operator>(CountValue other) const {
-    return this->count > other.count;
-  }
+        // Operations
+        bool operator<(CountValue other) const {
+          return this->count < other.count;
+        }
 
-  bool operator==(CountValue other) const {
-    return this->count == other.count;
-  }
+        bool operator>(CountValue other) const {
+          return this->count > other.count;
+        }
 
-  /**
-   * return string equivalent
-   */
-  public String toString() {
-    return sValue;
-  }
-}
+        bool operator==(CountValue other) const {
+          return this->count == other.count;
+        }
+
+        /**
+         * return string equivalent
+            public String toString() {
+              return sValue;
+            }
+        */
+        /**
+        * using std::tostring
+        */
+        ostream& operator<<(ostream& out, const CountValue& svalue) {
+          return out<< svalue.toString();
+        }
+      }
