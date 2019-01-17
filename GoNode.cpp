@@ -1,6 +1,5 @@
       class GONode {
-      public:
- 
+
       // Constants
 
       private static int MAXSons = 10;
