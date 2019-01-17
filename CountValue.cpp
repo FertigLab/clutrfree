@@ -6,7 +6,7 @@
 
 
       class CountValue {
-        public:
+
         // Attributes
         protected int k; // number of ontologies in given clusters
         protected int n; // total number of gens in cluster
