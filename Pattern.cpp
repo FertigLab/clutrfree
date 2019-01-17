@@ -1,10 +1,11 @@
+#include <iostream>
 #include <string>
 #include <vector>
 
 using namespace std;
 
 class Pattern {
-public:
+
     // Attributes
     private vector<float> values;         // the "profile" contained in a pattern
     private vector<float> sigma;          // Uncertainties of the profile
@@ -38,7 +39,8 @@ public:
 
     // Constructor
     //public Pattern(float[] values, float[] sigma, float cutoff, float[][] pat, float[][] sgp, float[][] amp, float[][] sga, GOData geneGO, int index)
-    Pattern(vector<float> values, vector<float> sigma, float cutoff, vector<vector<float>> pat, vector<vector<float>> sgp, vector<vector<float>> amp, vector<vector<float>> sga, int index): values(values), sigma(sigma), cutoff(cutoff), patternMatrix(pat), patSigmaMatrix(sgp), ampliMatrix(amp), ampliSigmaMatrix(sga)
+
+    public Pattern(vector<float> values, vector<float> sigma, float cutoff, vector<vector<float>> pat, vector<vector<float>> sgp, vector<vector<float>> amp, vector<vector<float>> sga, int index): values(values), sigma(sigma), cutoff(cutoff), patternMatrix(pat), patSigmaMatrix(sgp), ampliMatrix(amp), ampliSigmaMatrix(sga)
     {
         int i,j;
         valuesBin = vector<int>(this->values.size());
